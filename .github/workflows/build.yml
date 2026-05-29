@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   linux-build:
-    runs-on: ubuntu-2022
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v1
@@ -40,5 +40,5 @@ jobs:
         export PATH="/mingw64/bin:$PATH"
         mkdir build
         cd build
-        cmake -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=Release -DQt5Widgets_DIR=/d/a/_temp/msys/msys64/mingw64/qt5-static/lib/cmake/Qt5Widgets ..
+        cmake -G "MSYS Makefiles" -DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DCMAKE_BUILD_TYPE=Release -DQt5Widgets_DIR=/d/a/_temp/msys/msys64/mingw64/qt5-static/lib/cmake/Qt5Widgets ..
         make
